@@ -1,0 +1,13 @@
+
+[Interface]
+PrivateKey = {{ client_private_key }}
+Address = {{ client_ip }}
+DNS = {{ dns_ip }}
+# Kill switch is enforced at OS level by scripts; AllowedIPs 0.0.0.0/0 ensures full tunnel
+# For split tunnel, narrow AllowedIPs to specific subnets.
+[Peer]
+PublicKey = {{ server_public_key }}
+PresharedKey = {{ psk }}
+AllowedIPs = 0.0.0.0/0, ::/0
+Endpoint = {{ endpoint }}
+PersistentKeepalive = 25

@@ -1,0 +1,24 @@
+
+version: "3.8"
+services:
+  wireguard:
+    image: linuxserver/wireguard
+    container_name: customvpn-wireguard
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=UTC
+      - SERVERPORT=51820
+    volumes:
+      - ./wg0.conf:/config/wg0.conf
+      - /lib/modules:/lib/modules:ro
+    network_mode: "host"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "wg show || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3

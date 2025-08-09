@@ -1,0 +1,7 @@
+
+{
+  "domains_to_tunnel": ["*.bank.ca", "*.github.com"],
+  "domains_to_bypass": ["*.microsoft.com", "*.windowsupdate.com"],
+  "cidrs_to_tunnel": ["10.0.0.0/8", "172.16.0.0/12"],
+  "apps_to_tunnel": ["C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe"]
+}
